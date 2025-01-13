@@ -75,8 +75,9 @@ class Keyhelp extends Server
             ],
         ];
 
+        dd($plans->json());
+
         foreach ($plans->json() as $plan) {
-            dd($plan);
             $plansList[] = [
                 'name' => $plan['name'],
                 'id' => $plan['id'],

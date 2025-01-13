@@ -75,7 +75,7 @@ class Keyhelp extends Server
             ],
         ];
 
-        //dd($plans->json());
+        dd($plans->json());
 
         foreach ($plans->json() as $plan) {
             $plansList[] = [
@@ -102,8 +102,6 @@ class Keyhelp extends Server
             ],
             'Content-Type: application/json',
         ])->get($url);
-
-        dd($response);
 
         return $response;
     }

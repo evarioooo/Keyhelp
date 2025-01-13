@@ -154,8 +154,8 @@ class Keyhelp extends Server
             'username' => $username,
             'email' => $user->email,
             'password' => $user->password,
-            'id_hosting_plan' => $configurableOptions['plan'],
-            'domain' => $configurableOptions['domain'],
+            'id_hosting_plan' => $params['plan'],
+            'domain' => $params['domain'],
         ];
 
         $url = $this->config('host') . '/api/v2/clients';

@@ -5,6 +5,7 @@ namespace App\Extensions\Servers\Keyhelp;
 use App\Classes\Extensions\Server;
 use App\Helpers\ExtensionHelper;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class Keyhelp extends Server
 {

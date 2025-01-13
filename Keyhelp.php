@@ -162,12 +162,12 @@ class Keyhelp extends Server
         $response = $this->postRequest($url, $json);
 
         if (!$response->successful()) {
-            ExtensionHelper::error('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
+            ExtensionHelper::error('Keyhelp', 'Failed to create hosting for order ' . $orderProduct->id . ' with error ' . $response->body());
 
             return false;
         }
 
-        ExtensionHelper::success('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
+        ExtensionHelper::success('Keyhelp', 'Failed to create hosting for order ' . $orderProduct->id . ' with error ' . $response->body());
 
         return true;
 

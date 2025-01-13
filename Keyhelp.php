@@ -167,8 +167,6 @@ class Keyhelp extends Server
             return false;
         }
 
-        ExtensionHelper::success('Keyhelp', 'Failed to create hosting for order ' . $orderProduct->id . ' with error ' . $response->body());
-
         return true;
 
     }

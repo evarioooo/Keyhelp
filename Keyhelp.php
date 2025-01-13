@@ -153,6 +153,7 @@ class Keyhelp extends Server
         $json = [
             'username' => $username,
             'email' => $user->email,
+            'password' => $user->password,
             'id_hosting_plan' => $params['plan'],
             'domain' => $params['domain'],
         ];
@@ -164,9 +165,13 @@ class Keyhelp extends Server
             ExtensionHelper::error('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
 
             return false;
+        } else {
+            ExtensionHelper::success('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
+
+            return true;
         }
 
-        return true;
+
 
     }
 

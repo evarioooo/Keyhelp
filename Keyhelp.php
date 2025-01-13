@@ -91,10 +91,10 @@ class Keyhelp extends Server
                 'required' => true,
             ],
             [
-                'name' => 'test',
-                'friendlyName' => 'Test',
-                'type' => 'text',
-                'required' => true,
+                'name' => 'package',
+                'friendlyName' => 'Hosting package',
+                'type' => 'dropdown',
+                'options' => $plansList,
             ],
         ];
     }

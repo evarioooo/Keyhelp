@@ -145,7 +145,8 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
-        dd(Str::lower($user->first_name));
+        $username = Str::lower($user->first_name + 1);
+
         $json = [
             'username' => $username,
             'email' => $user->email,
@@ -162,6 +163,7 @@ class Keyhelp extends Server
 
             return false;
         }
+
 
         return true;
 

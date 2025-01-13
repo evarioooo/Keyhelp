@@ -85,7 +85,7 @@ class Keyhelp extends Server
 
         return [
             [
-                'name' => 'node',
+                'name' => 'plan',
                 'friendlyName' => 'Hosting plans',
                 'type' => 'dropdown',
                 'options' => $plansList,
@@ -152,9 +152,9 @@ class Keyhelp extends Server
 
         $json = [
             'username' => $username,
-            'contactemail' => $user->email,
+            'email' => $user->email,
+            'id_hosting_plan' => $params['plan'],
             'domain' => $params['domain'],
-            'plan' => $params['package']
         ];
 
         $url = $this->config('host') . '/api/v2/clients';

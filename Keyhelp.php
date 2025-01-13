@@ -75,7 +75,7 @@ class Keyhelp extends Server
             ],
         ];
 
-        dd($this->config());
+        //dd($plans->json());
 
         foreach ($plans->json() as $plan) {
             $plansList[] = [
@@ -97,9 +97,11 @@ class Keyhelp extends Server
     private function getRequest($url): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         $response = Http::withHeaders([
-            'X-API-KEY:' . $this->config('apiKey'),
+            'X-API-KEY: ' . $this->config('apiKey'),
             'Content-Type: application/json',
         ])->get($url);
+
+        dd($response);
 
         return $response;
     }

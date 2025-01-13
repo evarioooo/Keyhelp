@@ -90,6 +90,12 @@ class Keyhelp extends Server
                 'type' => 'text',
                 'required' => true,
             ],
+            [
+                'name' => 'test',
+                'friendlyName' => 'Test',
+                'type' => 'text',
+                'required' => true,
+            ],
         ];
     }
 

@@ -98,9 +98,9 @@ class Keyhelp extends Server
     {
         $response = Http::withHeaders([
             'Authorization' => [
-                'X-API-Key:' . $this->config('apiKey')
+                'X-API-Key: ' . $this->config('apiKey')
             ],
-            'Content-Type: application/json',
+            'Content-Type: application/jsons',
         ])->get($url);
 
         return $response;

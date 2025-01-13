@@ -85,12 +85,6 @@ class Keyhelp extends Server
 
         return [
             [
-                'name' => 'domain',
-                'friendlyName' => 'Domain',
-                'type' => 'text',
-                'required' => true,
-            ],
-            [
                 'name' => 'plan',
                 'friendlyName' => 'Hosting plan',
                 'type' => 'dropdown',
@@ -149,7 +143,7 @@ class Keyhelp extends Server
         $username = Str::lower($user->first_name);
 
         $json = [
-            'username' => $username . $random,
+            'username' => $user->username,
             'email' => $user->email,
             'id_hosting_plan' => $params['plan'],
         ];
@@ -163,7 +157,6 @@ class Keyhelp extends Server
         }
 
         return true;
-
     }
 
     /**

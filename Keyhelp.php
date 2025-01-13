@@ -97,7 +97,7 @@ class Keyhelp extends Server
     private function getRequest($url): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         $response = Http::withHeaders([
-            'X-API-KEY: yklrj3a3.TmfIW4PEiUqoS8VgK6JbVIUYjAAUA1demVPhTZLMcBSc56CrXIDmEacKaWy25Wj2VppNUdxNomh2glI4tqYiiUj8OquwutasyC1orXDVAQs5kJ9KP5W8krmz',
+            'X-API-KEY: ' . $this->config('apiKey'),
             'Content-Type: application/json',
         ])->get($url);
 

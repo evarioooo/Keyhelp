@@ -145,15 +145,13 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
-        $random = mt_rand(1000000000, 9999999999);
+        $random = mt_rand(10, 99);
         $username = Str::lower($user->first_name);
 
         $json = [
             'username' => $username . $random,
             'email' => $user->email,
-            'password' => $user->password,
             'id_hosting_plan' => $params['plan'],
-            'domain' => $params['domain'],
         ];
 
         $url = $this->config('host') . '/api/v2/clients';
@@ -161,10 +159,8 @@ class Keyhelp extends Server
 
         if (!$response->successful()) {
             ExtensionHelper::error('Keyhelp', 'Failed to create hosting for order ' . $orderProduct->id . ' with error ' . $response->body());
-
             return false;
         }
-
 
         return true;
 

@@ -145,7 +145,7 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
-        $username = Str::lower($user->first_name + 1);
+        $username = Str::lower($user->first_name) + 1;
 
         $json = [
             'username' => $username,

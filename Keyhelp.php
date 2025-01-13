@@ -145,11 +145,7 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
-        $username = Str::random();
-        if (is_numeric($username[0])) {
-            $username = 'a' . substr($username, 1);
-        }
-
+        dd($user);
         $json = [
             'username' => 'test',
             'email' => $user->email,

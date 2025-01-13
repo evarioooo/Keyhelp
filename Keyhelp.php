@@ -85,12 +85,6 @@ class Keyhelp extends Server
 
         return [
             [
-                'name' => 'planssss',
-                'friendlyName' => 'Hosting plans',
-                'type' => 'dropdown',
-                'options' => $plansList,
-            ],
-            [
                 'name' => 'domain',
                 'friendlyName' => 'Domain',
                 'type' => 'text',

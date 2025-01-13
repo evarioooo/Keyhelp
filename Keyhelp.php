@@ -89,6 +89,12 @@ class Keyhelp extends Server
                 'type' => 'dropdown',
                 'options' => $plansList,
             ],
+            [
+                'name' => 'domain',
+                'friendlyName' => 'Domain',
+                'type' => 'text',
+                'required' => true,
+            ],
         ];
     }
 
@@ -100,6 +106,30 @@ class Keyhelp extends Server
         ])->get($url);
 
         return $response;
+    }
+
+    private function postRequest($url, $data): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+    {
+        return Http::withHeaders([
+            'X-API-Key' => $this->config('apiKey'),
+            'Content-Type' => 'application/json'
+        ])->post($url, $data);
+    }
+
+    private function patchRequest($url, $data): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+    {
+        return Http::withHeaders([
+            'X-API-Key' => $this->config('apiKey'),
+            'Content-Type' => 'application/json'
+        ])->patch($url, $data);
+    }
+
+    public function deleteRequest($url): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+    {
+        return Http::withHeaders([
+            'X-API-Key' => $this->config('apiKey'),
+            'Content-Type' => 'application/json'
+        ])->delete($url);
     }
 
     /**
@@ -114,7 +144,29 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
-        return false;
+        $username = Str::random();
+        if (is_numeric($username[0])) {
+            $username = 'a' . substr($username, 1);
+        }
+
+        $json = [
+            'username' => $username,
+            'contactemail' => $user->email,
+            'domain' => $params['domain'],
+            'plan' => $params['package']
+        ];
+
+        $url = $this->config('host') . '/api/v2/clients';
+        $response = $this->postRequest($url, $json);
+
+        if (!$response->successful()) {
+            ExtensionHelper::error('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
+
+            return false;
+        }
+
+        return true;
+
     }
 
     /**

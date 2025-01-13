@@ -145,7 +145,6 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
-        dd($params);
         $username = Str::random();
         if (is_numeric($username[0])) {
             $username = 'a' . substr($username, 1);

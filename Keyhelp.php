@@ -78,7 +78,7 @@ class Keyhelp extends Server
         foreach ($plans->json() as $plan) {
             $plansList[] = [
                 'name' => $plan['name'],
-                'id' => $plan['id'],
+                'value' => $plan['id'],
             ];
         }
 

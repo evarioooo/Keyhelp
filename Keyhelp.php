@@ -154,8 +154,8 @@ class Keyhelp extends Server
             'username' => $username,
             'email' => $user->email,
             'password' => $user->password,
-            'id_hosting_plan' => $params['plan'],
-            'domain' => $params['domain'],
+            'id_hosting_plan' => $configurableOptions['plan'],
+            'domain' => $configurableOptions['domain'],
         ];
 
         $url = $this->config('host') . '/api/v2/clients';
@@ -165,13 +165,11 @@ class Keyhelp extends Server
             ExtensionHelper::error('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
 
             return false;
-        } else {
-            ExtensionHelper::success('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
-
-            return true;
         }
 
+        ExtensionHelper::success('Pterodactyl', 'Failed to create server for order ' . $orderProduct->id . ' with error ' . $response->body());
 
+        return true;
 
     }
 

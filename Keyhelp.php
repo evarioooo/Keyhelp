@@ -101,8 +101,6 @@ class Keyhelp extends Server
             'Content-Type: application/jsons',
         ])->get($url);
 
-        dd($response->getHeader());
-
         return $response;
     }
 

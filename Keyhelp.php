@@ -151,7 +151,7 @@ class Keyhelp extends Server
         }
 
         $json = [
-            'username' => $username,
+            'username' => 'test',
             'email' => $user->email,
             'password' => $user->password,
             'id_hosting_plan' => $params['plan'],

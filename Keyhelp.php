@@ -75,7 +75,7 @@ class Keyhelp extends Server
             ],
         ];
 
-        dd($this->config('host'));
+        dd($this->config());
 
         foreach ($plans->json() as $plan) {
             $plansList[] = [

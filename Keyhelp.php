@@ -152,11 +152,8 @@ class Keyhelp extends Server
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
         $sanitized = preg_replace('/[^a-zA-Z0-9]/', '', strtolower($user->username));
-        if (empty($sanitized)) {
-             $sanitized = $this->random_string(8);
-        }
         $json = [
-            'username' =>  $sanitized . $this->random_string(3) ?? $this->random_string(8),
+            'username' =>  $sanitized,
             'email' => $user->email,
             'id_hosting_plan' => $params['plan'],
         ];

@@ -200,4 +200,18 @@ class Keyhelp extends Server
     {
         return false;
     }
+
+    public function getLink($user, $params, $order, $orderProduct): bool|string
+    {
+        $server = $this->serverExists($orderProduct->id);
+        if ($server) {
+            $url = $this->config('host') . '/api/application/servers/' . $server;
+            $response = $this->getRequest($url);
+            $server = $response->json();
+
+            return $this->config('host') . '/server/' . $server['attributes']['identifier'];
+        }
+
+        return false;
+    }
 }

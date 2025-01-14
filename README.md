@@ -1,7 +1,6 @@
 # Table of contents
 
 * [About the project](#about-the-project)
-* [Contributing](#contributing)
 * [Authors](#authors)
 * [License](#license)
 
@@ -9,12 +8,10 @@
 
 A simple Keyhelp extension for paymenter.
 
-# Contributing
-
---
-
 # Authors
 
---
+* [evarioooo](https://github.com/evarioooo)
 
 # License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

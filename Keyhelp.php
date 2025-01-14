@@ -156,7 +156,7 @@ class Keyhelp extends Server
              $sanitized = $this->random_string(8);
         }
         $json = [
-            'username' =>  $sanitized . '_' . $this->random_string(3) ?? $this->random_string(8),
+            'username' =>  $sanitized . $this->random_string(3) ?? $this->random_string(8),
             'email' => $user->email,
             'id_hosting_plan' => $params['plan'],
         ];

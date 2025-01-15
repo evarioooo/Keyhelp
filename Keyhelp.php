@@ -151,6 +151,7 @@ class Keyhelp extends Server
      */
     public function createServer($user, $params, $order, $orderProduct, $configurableOptions)
     {
+        dd($params);
         $sanitized = preg_replace('/[^a-zA-Z0-9]/', '', strtolower($user->username));
         $json = [
             'username' =>  $sanitized,
